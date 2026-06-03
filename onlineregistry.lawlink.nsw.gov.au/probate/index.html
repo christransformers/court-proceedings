@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from onlineregistry.lawlink.nsw.gov.au/probate/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jun 2026 01:22:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<title>Probate</title>
+<script type="text/javascript" src="../ruxitagentjs_ICANVfqru_10337260504112723.js" data-dtconfig="rid=RID_-1773267456|rpid=-1275805860|domain=nsw.gov.au|reportUrl=/rb_bf83065qch|app=9cda885aa95209f5|cuc=5k629gwp|owasp=1|mel=100000|featureHash=ICANVfqru|dpvc=1|lastModification=1779064761510|tp=500,50,0|rdnt=1|uxrgce=1|srbbv=2|agentUri=/ruxitagentjs_ICANVfqru_10337260504112723.js"></script><link href="https://onlineregistry.lawlink.nsw.gov.au/probate/click/control.css" rel="stylesheet" type="text/css"/>
+<style id="table_css_setup" type="text/css">
+th.sortable a {
+background: url(https://onlineregistry.lawlink.nsw.gov.au/probate/click/column-sortable-dark.gif) center right no-repeat;}
+th.ascending a {
+background: url(https://onlineregistry.lawlink.nsw.gov.au/probate/click/column-ascending-dark.gif) center right no-repeat;}
+th.descending a {
+background: url(https://onlineregistry.lawlink.nsw.gov.au/probate/click/column-descending-dark.gif) center right no-repeat;}
+</style>
+
+<script src="https://onlineregistry.lawlink.nsw.gov.au/probate/click/control.js" type="text/javascript"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="https://onlineregistry.lawlink.nsw.gov.au/probate/resources/css/jquery-ui-1.8.18.custom.css">		
+	<link rel="stylesheet" type="text/css" href="https://onlineregistry.lawlink.nsw.gov.au/probate/resources/css/orw-generic.css">
+	<link rel="stylesheet" type="text/css" href="https://onlineregistry.lawlink.nsw.gov.au/probate/resources/css/orw-override.css">	
+	<script type="text/javascript" src="https://onlineregistry.lawlink.nsw.gov.au/probate/resources/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="https://onlineregistry.lawlink.nsw.gov.au/probate/resources/js/jquery.ba-postmessage.min.js"></script>
+	<script type="text/javascript" src="https://onlineregistry.lawlink.nsw.gov.au/probate/resources/js/jquery-ui-1.8.18.custom.min.js"></script>
+
+	<script type="text/javascript">
+
+	function printNotice() {
+		var iframe = window.frames["noticeDialogIframe"];
+		if ( iframe.contentWindow != null){
+			iframe.contentWindow.print();
+		}
+		else {
+			iframe.print();                		
+		}
+	}
+	
+	
+	var parent_url = "";
+	
+    function logDebug(debug) {
+    	if ( window.console != null ) {
+    		console.log(debug);
+    	}
+    }  
+	// Post size change message to host page
+	postMessageFn = function(msg) {
+	    		$.postMessage(msg, parent_url);
+	};
+
+	
+	$(function(){ 
+	     // Hook up the receive message event	    
+	     	     
+    	$.receiveMessage(function(e) {
+	
+			parent_url = e.data.match(/parentUrl=(.+)/);
+			if (parent_url) {
+				parent_url = parent_url[1];
+			}
+	
+			if (parent_url != null && parent_url !== "") {
+				var lastHeight = $('body').height();
+		
+		    	logDebug("Post Msg - 'formHeight='" + lastHeight + "'px'");		
+				postMessageFn('formHeight=' + lastHeight + 'px');
+				// Unbind message listener
+				$.receiveMessage();
+				
+						
+			}   
+    	});
+    	
+        // jQuery UI Dialog
+        $('#dialog-modal').dialog({
+            autoOpen: false,
+            minWidth: 400,            
+            width: 700,
+            minHeight: 200,
+            modal: true,
+            resizable: false     	
+        });                 
+	});	    	
+
+
+	
+    function prepareDialog(number) {
+    	
+        $('#noticeDialogIframe').attr('src', "/probate/notice?noticeID=" + number ) ;
+		$('#hrefPrint').attr('href', '/probate/noticePdf?noticeID=' + number )
+        
+    	$('#dialog-modal').dialog('open');
+    }
+    
+    function autoResize(iframe, id){
+        var newheight;
+        
+        if ( !iframe )  {
+	        if(document.getElementById){
+	        	iframe = document.getElementById(id) ;
+	        }  	
+        }
+                
+        if ( iframe ) { 
+        	if ( iframe.src ) {
+            	var divControl = iframe.contentWindow.document.body.firstChild ;
+            	
+            	if ( divControl ) {
+                	newheight=divControl.scrollHeight;
+            	}
+            	
+            	iframe.height = (newheight + 30) + "px";         		
+        	}
+        }
+        
+        //document.getElementById('dialog-modal').height = (newheight + 100) + "px";
+    }
+
+    
+    $(document).ready(function() {
+    	$( "#searchForm_dodfrom" ).datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeYear: true, yearRange: "1900:c", firstDay: 1});
+    	$( "#searchForm_dodto" ).datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeYear: true, yearRange: "1900:c", firstDay: 1});
+    	$( "#searchForm_adddatefrom" ).datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeYear: true, yearRange: "1900:c", firstDay: 1});
+    	$( "#searchForm_adddateto" ).datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeYear: true, yearRange: "1900:c", firstDay: 1});
+    });
+	</script>
+</head>
+
+<body>
+	<div id="content-wrap">
+		<div id="content-mid" >
+			<div id="content-border" >
+			
+<script  type="text/javascript">
+String.prototype.lpad = function(padString, length) {
+	var str = this;
+    while (str.length < length)
+        str = padString + str;
+    return str;
+}
+
+function formatCaseNumber() {
+	var caseYearField = $("#searchForm_caseYear") ;
+	var caseNumberField = $("#searchForm_caseNumber") ;	
+	
+	if ( caseYearField ) {
+		var caseNumber = caseYearField.val() ;
+		if ( caseNumber ) {
+			caseNumber = caseNumber.lpad('0', 3) ;
+			if ( caseNumber.length < 4) {
+				caseNumber = '2' + caseNumber ;
+			}
+			caseYearField.val(caseNumber) ;
+		}
+	}
+	
+	if ( caseNumberField ) {
+		var caseNumber = caseNumberField.val() ;
+		if ( caseNumber ) {
+			caseNumber = caseNumber.lpad('0', 8) ;
+			caseNumberField.val(caseNumber) ;
+		}
+	}
+}
+
+</script>
+
+<div id="dialog-modal" title="Probate notice" style="display:none;">
+		<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;display: none;"></span>
+		<iframe id="noticeDialogIframe" class="noticeDialogIframe" scrolling="auto" onload="autoResize(this, 'noticeDialogIframe');" 
+				frameborder="0"	marginwidth="0" marginheight="0" border="0"></iframe>
+		<div id="buttonPanel">
+			<input type="button" id="dialogClose" class="button button-grey" onClick="$('#dialog-modal').dialog('close');" value="Close"></input>
+			<!--input type="button" id="dialogPrint" class="button button-blue" onClick="printNotice();" value="Print"></input-->
+			<a id="hrefPrint" target="blank" class="button button-blue" href="#" style="display:inline-block;height:16px;text-align:center;">View as PDF</a>			
+		</div>
+</div>
+
+<div id="searchFormHolder">
+    <h1 class="pageHeading">Search for a probate notice</h1>
+    <p>You can search for probate notices which were published online on or after 21 January 2013. Before this date, notices were published in The Sydney Morning Herald and/or local newspapers.</p>
+    <form method="post" name="searchForm" id="searchForm" action="https://onlineregistry.lawlink.nsw.gov.au/probate/probate-notice-search.htm">
+<input type="hidden" name="form_name" id="searchForm_form_name" value="searchForm"/>
+	  
+	<div id="searchDetails" class="pale-blue space-around">  
+		<div id="deceasedDetails"> 
+			<h2>Deceased details</h2> 
+			<div class="fieldPanel">
+				<div class="searchRowDiv">
+					<div id="givenNameFieldDiv" class="searchFieldDiv"> 
+						<label class="searchFieldLabel">Given name</label> <br/>
+						<input type="text" name="givenName" id="searchForm_givenName" value="" size="20" class="searchInputField"/>				
+					</div> 
+					<div id="surnameFieldDiv" class="searchFieldDiv"> 
+			    		<label class="searchFieldLabel">Surname</label>	<br/> 
+						<input type="text" name="surname" id="searchForm_surname" value="" size="20" class="searchInputField"/>								 		            
+					</div> 
+				</div>
+				<div class="searchRowDiv">
+					<div id="suburbFieldDiv" class="searchFieldDiv"> 
+			    		<label class="searchFieldLabel">Suburb</label> <br/>
+						<input type="text" name="suburb" id="searchForm_suburb" value="" size="20" class="searchInputField"/>							             
+					</div> 
+					<div id="postcodeFieldDiv" class="searchFieldDiv"> 
+			    		<label class="searchFieldLabel">Postcode</label> <br/>
+						<input type="text" name="postcode" id="searchForm_postcode" value="" size="20" class="searchInputField"/>						            
+					</div> 
+				</div>
+				<div class="searchRowDiv"> 							           
+				    <div id="deceasedSearchFieldDateDiv" class="searchRowDiv">			
+				    	<div id="deceasedSearchFieldDateFromDiv" class="searchFieldDiv">
+				    	   <label class="searchFieldLabel">Date of death from</label><br/>
+				    	   <input type="text" name="dodfrom" id="searchForm_dodfrom" value="" size="20" title="dd/mm/yyyy" placeHolder="from" class="searchDateField searchInputField"/>
+				    	</div>
+				    	<div id="deceasedSearchFieldDateToDiv" class="searchFieldDiv">
+				    	   <label class="searchFieldLabel">to</label><br/>
+				    	   <input type="text" name="dodto" id="searchForm_dodto" value="" size="20" title="dd/mm/yyyy" placeHolder="to" class="searchDateField searchInputField"/>
+				    	</div>
+				    </div> 		
+				</div> 
+			</div>				
+		</div> 
+		<div id="noticeDetails"> 
+			<h2>Notice details</h2>
+			<div class="fieldPanel" style="padding-right:1px">
+				<div class="searchRowDiv"> 
+		    		<label class="searchFieldLabel" >Notice type (notice of ...)</label><br/>	
+				    <select name="noticetype" id="searchForm_noticetype" size="1" class="searchInputField"><option selected="selected" value=""></option><option value="NT001">Intended Application for Probate</option><option value="NT002">Intended Application for Letters of Administration</option><option value="NT003">Intended Application for Administration with Will Annexed</option><option value="NT004">Intended Application for Resealing</option><option value="Distribution">Intended Distribution of an Estate</option><option value="Accounts">Filing of Accounts</option></select>	
+				</div> 
+				<div class="searchRowDiv"> 
+		     		<label class="searchFieldLabel" >Case number (yyyy/xxxxxxxx)</label><br/>	
+				    <input type="text" name="caseYear" id="searchForm_caseYear" value="" size="20" maxlength="4" class="searchInputField"/> / <input type="text" name="caseNumber" id="searchForm_caseNumber" value="" size="20" maxlength="8" class="searchInputField"/>
+				</div> 
+				<div class="searchRowDiv">	 			        
+				    <div id="noticeSearchFieldDateDiv" class="searchRowDiv">				        
+				    	<div id="noticeSearchFieldDateFromDiv" class="searchFieldDiv">
+				    	   <label class="searchFieldLabel">Notice date from</label><br/>
+				    	   <input type="text" name="adddatefrom" id="searchForm_adddatefrom" value="" size="20" title="dd/mm/yyyy" placeHolder="from" class="searchDateField searchInputField"/>
+				    	</div>				    	
+				    	<div id="noticeSearchFieldDateToDiv" class="searchFieldDiv">
+				    	   <label class="searchFieldLabel">to</label><br/>
+				    	   <input type="text" name="adddateto" id="searchForm_adddateto" value="03/06/2026" size="20" title="dd/mm/yyyy" placeHolder="to" class="searchDateField searchInputField"/>
+				    	</div>
+				    </div> 		
+				</div>
+			</div> 				
+		</div>			 
+	</div>	 
+ 	 	<div class="searchButtonsPanel">
+	<input type="submit" name="defaultSearch" id="searchForm_defaultSearch" value="Default Search" class="hiddenSearchButton" onclick="formatCaseNumber();"/>	
+	<input type="submit" name="clear" id="searchForm_clear" value="Clear" title="Clear" class="button button-blue"/>	
+	<input type="submit" name="search" id="searchForm_search" value="Search" title="Search" class="button button-orange" onclick="formatCaseNumber();"/>
+	</div>
+	</form>
+	
+	
+	</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div id="modal-dialog" class="modal"></div>
+
+	<script defer src="../../static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"907ef0ac3d9f4726bc179f7cd9f9480b","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from onlineregistry.lawlink.nsw.gov.au/probate/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jun 2026 01:22:22 GMT -->
+</html>
+
